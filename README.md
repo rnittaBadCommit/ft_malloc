@@ -1,7 +1,9 @@
 さらばmemory leak
 
+```
 void	*ft_malloc(int size);
 void	ft_free_all(void);
+```
 
 ft_malloc()によってmallocされたものは、ft_free_all()によって全てfreeされます。
 使い方としては、mallocの代わりにft_malloc()を使い、プログラムの途中ではfreeせず、プログラムの最後にft_free_all()を呼びます。
