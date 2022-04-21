@@ -16,4 +16,5 @@ int main(void)
     s = ft_malloc(100);
     func();
     ft_free_all();
+    system("leaks -q a.out");
 }
