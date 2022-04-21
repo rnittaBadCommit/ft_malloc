@@ -12,6 +12,15 @@
 
 #include "ft_malloc.h"
 
+void	ft_bzero(void *ss, int size)
+{
+	char	*s;
+
+	s = (char *)ss;
+	while (size--)
+		s[size] = 0;
+}
+
 t_list	*save_list()
 {
 	static t_list	save;
