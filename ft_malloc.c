@@ -55,7 +55,7 @@ void	ft_free_all(void)
 {
 	t_list	*list;
 
-	list = save_list(1);
+	list = save_list();
 	if (list->next)
 		ft_free_process(list->next);
 	free(list->next);
