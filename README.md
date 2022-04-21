@@ -13,6 +13,7 @@ ft_malloc()によってmallocされたものは、ft_free_all()によって全�
 
 ↓こんなプログラムでもno memory leak!
 
+```
 #include <stdlib.h>
 #include "ft_malloc.h"
 
@@ -32,7 +33,7 @@ int main(void)
     func();
 	ft_free_all();
 }
-
+```
 
 ft_malloc()したけどプログラムの途中でそれだけfreeしたい場合のための関数ft_free(void *p)が欲しいとなったら作ります。
 バグがあったら教えてください。
