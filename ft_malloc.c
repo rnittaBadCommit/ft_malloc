@@ -12,7 +12,7 @@
 
 #include "ft_malloc.h"
 
-void	ft_bzero(void *ss, int size)
+void	ft_bzero(void *ss, size_t size)
 {
 	char	*s;
 
@@ -25,7 +25,7 @@ t_list	*save_list()
 {
 	static t_list	save;
 
-    return (&save);
+	return (&save);
 }
 
 void	add_malloc_list(void *new, int index)
@@ -63,12 +63,12 @@ void	ft_free_all(void)
 	list->p = NULL;
 }
 
-void	*ft_malloc(int size)
+void	*ft_malloc(size_t size)
 {
 	void	*ret;
-    int     index;
+	int     index;
 
-    index = 0;
+	index = 0;
 	if (!size)
 		return (NULL);
 	ret = malloc(size);
