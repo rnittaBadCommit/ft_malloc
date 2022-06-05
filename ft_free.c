@@ -14,11 +14,11 @@
 
 t_list	*save_list();
 
-static void	_ft_free_process(t_list *list)
+static void	_ft_free_all_process(t_list *list)
 {
 	if (list->next)
 	{
-		_ft_free_process(list->next);
+		_ft_free_all_process(list->next);
 		free(list->next);
 	}
 	free(list->p);
@@ -30,8 +30,34 @@ void	ft_free_all(void)
 
 	list = save_list();
 	if (list->next)
-		_ft_free_process(list->next);
+		_ft_free_all_process(list->next);
 	free(list->next);
 	list->next = NULL;
 	list->p = NULL;
+}
+
+static int	_ft_free_process(t_list *list, void *p)
+{
+	if (list->p == p)
+	{
+		free(p);
+		printf("%p\n", p);
+		list->p = NULL;
+		return (0);
+	}
+	else if (list->next)
+		return (_ft_free_process(list->next, p));
+	else
+		return (-1);
+}
+
+int	ft_free(void *p)
+{
+	t_list *list;
+
+	list = save_list();
+	if (list->next)
+		return (_ft_free_process(list->next, p));
+	else
+		return (-1);
 }
